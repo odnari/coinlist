@@ -18,13 +18,11 @@ export default function MarketsList({navigation}) {
 
   return (
     <Layout style={styles.list}>
-      <Layout level="3">
-        <MarketsListHeader />
-      </Layout>
       <List
         ItemSeparatorComponent={Divider}
         renderItem={MarketsListItem}
         data={items}
+        ListHeaderComponent={MarketsListHeader}
       />
     </Layout>
   );
