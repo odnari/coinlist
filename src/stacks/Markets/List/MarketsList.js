@@ -5,22 +5,18 @@ import MarketsListItem from './components/MarketListItem';
 import MarketsListHeader from './components/MarketListHeader';
 import styles from './styles';
 
-export default function MarketsList({navigation}) {
+export default function MarketsList() {
   const {items, fetch} = useContext(MarketsContext);
 
   useEffect(() => {
     fetch();
   }, [fetch]);
 
-  const onDetailsPress = () => {
-    navigation && navigation.navigate('MarketsDetails');
-  };
-
   return (
     <Layout style={styles.list}>
       <List
         ItemSeparatorComponent={Divider}
-        renderItem={MarketsListItem}
+        renderItem={props => <MarketsListItem {...props} />}
         data={items}
         ListHeaderComponent={MarketsListHeader}
       />
