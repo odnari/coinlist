@@ -1,12 +1,14 @@
 import React, {useCallback, useContext, useEffect} from 'react';
 import {Divider, Layout, List} from '@ui-kitten/components';
 import {MarketsContext} from '../../../context/markets';
+import {SettingsContext} from '../../../context/settings';
 import MarketsListItem from './components/MarketListItem';
 import MarketsListHeader from './components/MarketListHeader';
 import styles from './styles';
 
 export default function MarketsList({navigation}) {
   const {items, fetch} = useContext(MarketsContext);
+  const {currency} = useContext(SettingsContext);
 
   const onPress = useCallback(
     item =>
@@ -18,7 +20,7 @@ export default function MarketsList({navigation}) {
   );
 
   useEffect(() => {
-    fetch();
+    fetch({vs_currency: currency});
   }, [fetch]);
 
   return (

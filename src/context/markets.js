@@ -14,7 +14,6 @@ export function MarketsProvider(props) {
       fetchMarkets(options)
         .then(items => {
           setItems(items);
-          console.log(items);
         })
         .catch(err => console.error(err)),
     [],

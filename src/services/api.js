@@ -11,7 +11,7 @@ export const fetchMarkets = (options = {}) => {
     ...defaultFetchMarketsOptions,
     ...options,
   });
-  console.log(url);
+
   return fetchRequest(url);
 };
 

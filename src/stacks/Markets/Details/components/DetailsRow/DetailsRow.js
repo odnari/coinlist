@@ -3,7 +3,13 @@ import styles from './styles';
 import {Divider, Layout, Text} from '@ui-kitten/components';
 import {Pressable} from 'react-native';
 
-export default function DetailsRow({label, value, vertical, onPress}) {
+export default function DetailsRow({
+  label,
+  value,
+  vertical,
+  onPress,
+  valueStyle = {},
+}) {
   const containerStyle = vertical
     ? styles.containerVertical
     : styles.containerHorizontal;
@@ -18,7 +24,9 @@ export default function DetailsRow({label, value, vertical, onPress}) {
         <Text appearance="hint" category="s1" style={labelStyle}>
           {label}
         </Text>
-        <Text category="s1">{value || '-'}</Text>
+        <Text category="s1" style={valueStyle}>
+          {value || '-'}
+        </Text>
       </Layout>
       <Divider />
     </WrapperComponent>
