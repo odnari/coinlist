@@ -1,13 +1,13 @@
 import React, {useCallback, useContext} from 'react';
+import {Alert, Linking, RefreshControl, ScrollView} from 'react-native';
 import {Layout} from '@ui-kitten/components';
 import DetailsRow from './components/DetailsRow';
 import DetailsHeader from './components/DetailsHeader';
-import {Alert, Linking, RefreshControl, ScrollView} from 'react-native';
 import TextWithLinks from '../../../components/TextWithLinks';
 import {loadingStates} from '../../../constants';
 import {SettingsContext} from '../../../context/settings';
-import styles from './styles';
 import useCoin from './hooks/useCoin';
+import styles from './styles';
 
 export default function Details({route: {params}}) {
   const {locale, currency} = useContext(SettingsContext);

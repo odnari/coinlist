@@ -1,12 +1,16 @@
-import {re} from '@babel/core/lib/vendor/import-meta-resolve';
-
 const defaultHeaders = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
 };
 
 export const getUrlWithParams = (sourceUrl, params) => {
-  const paramsString = Object.keys(params)
+  const keys = Object.keys(params);
+
+  if (!keys.length) {
+    return sourceUrl;
+  }
+
+  const paramsString = keys
     .map(key => `${key}=${encodeURIComponent(params[key])}`)
     .join('&');
 
@@ -27,7 +31,7 @@ export default function fetchRequest(
     },
   };
 
-  if (method !== 'GET') {
+  if (method !== 'GET' && method !== 'HEAD') {
     request.body = JSON.stringify(body);
   }
 

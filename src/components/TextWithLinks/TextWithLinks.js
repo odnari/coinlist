@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {Alert, Linking} from 'react-native';
 import HyperlinkedText from 'react-native-hyperlinked-text';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './styles';
 import {Divider, Layout, Text} from '@ui-kitten/components';
 import {Pressable} from 'react-native';
+import styles from './styles';
 
 function DetailsRow({label, value, vertical, onPress, valueStyle = {}}) {
   const containerStyle = vertical
