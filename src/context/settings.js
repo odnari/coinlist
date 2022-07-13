@@ -1,5 +1,5 @@
 import React from 'react';
-import {createContext, useMemo, useState} from 'react';
+import {createContext, useContext, useMemo, useState} from 'react';
 
 export const SettingsContext = createContext();
 
@@ -16,4 +16,14 @@ export function SettingsProvider(props) {
   );
 
   return <SettingsContext.Provider value={value} {...props} />;
+}
+
+export function useSettings() {
+  const context = useContext(SettingsContext);
+
+  if (!context) {
+    throw new Error('useSettings must be used within a SettingsProvider');
+  }
+
+  return context;
 }

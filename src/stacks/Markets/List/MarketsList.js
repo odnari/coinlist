@@ -1,15 +1,15 @@
-import React, {useCallback, useContext, useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {Divider, Layout, List} from '@ui-kitten/components';
-import {MarketsContext} from '../../../context/markets';
-import {SettingsContext} from '../../../context/settings';
+import {useMarkets} from '../../../context/markets';
+import {useSettings} from '../../../context/settings';
 import {loadingStates} from '../../../constants';
 import MarketsListItem from './components/MarketListItem';
 import MarketsListHeader from './components/MarketListHeader';
 import styles from './styles';
 
 export default function MarketsList({navigation}) {
-  const {items, fetch, status} = useContext(MarketsContext);
-  const {currency} = useContext(SettingsContext);
+  const {items, fetch, status} = useMarkets();
+  const {currency} = useSettings();
 
   const onPress = useCallback(
     item =>

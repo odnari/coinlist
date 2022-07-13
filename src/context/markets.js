@@ -1,5 +1,5 @@
 import React from 'react';
-import {createContext, useCallback, useMemo, useState} from 'react';
+import {createContext, useContext, useCallback, useMemo, useState} from 'react';
 import {Alert} from 'react-native';
 import {fetchMarkets} from '../services/api';
 import {loadingStates} from '../constants';
@@ -32,4 +32,14 @@ export function MarketsProvider(props) {
   );
 
   return <MarketsContext.Provider value={value} {...props} />;
+}
+
+export function useMarkets() {
+  const context = useContext(MarketsContext);
+
+  if (!context) {
+    throw new Error('useMarkets must be used within a MarketsProvider');
+  }
+
+  return context;
 }
