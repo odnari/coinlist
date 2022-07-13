@@ -11,7 +11,7 @@ export function SettingsProvider(props) {
   const [locale, setLocale] = useState(defaultLocale);
 
   const value = useMemo(
-    () => ({locale, currency, setCurrency, setLanguage: setLocale}),
+    () => ({locale, currency, setCurrency, setLocale}),
     [locale, currency, setLocale, setCurrency],
   );
 

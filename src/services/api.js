@@ -1,5 +1,6 @@
-import fetchRequest, {getUrlWithParams} from './fetchRequest';
 import {endpoints} from '../endpoints';
+import {getUrlWithParams} from '../utils/getUrlWithParams';
+import fetchRequest from '../utils/fetchRequest';
 
 const defaultFetchMarketsOptions = {
   vs_currency: 'EUR',
