@@ -31,13 +31,13 @@ export default function MarketsList({navigation}) {
 
   return (
     <Layout style={styles.list}>
+      <MarketsListHeader />
       <List
         refreshing={status === loadingStates.LOADING}
         onRefresh={loadMarkets}
         ItemSeparatorComponent={Divider}
         renderItem={props => <MarketsListItem onPress={onPress} {...props} />}
         data={items}
-        ListHeaderComponent={MarketsListHeader}
       />
     </Layout>
   );
