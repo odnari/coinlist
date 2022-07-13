@@ -10,8 +10,7 @@ A React Native test task
 
 #### Android
 
-<img alt="Android List Screen" src="https://i.imgur.com/kB06wTv.png" width="300">
-<img alt="Android Details Screen" src="https://i.imgur.com/R0AYkwi.png" width="300">
+<img alt="Android List Screen" src="https://i.imgur.com/kB06wTv.png" width="300"> <img alt="Android Details Screen" src="https://i.imgur.com/R0AYkwi.png" width="300">
 
 ### Notes
 
