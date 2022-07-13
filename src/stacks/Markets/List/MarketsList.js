@@ -21,7 +21,7 @@ export default function MarketsList({navigation}) {
 
   useEffect(() => {
     fetch({vs_currency: currency});
-  }, [fetch]);
+  }, [currency, fetch]);
 
   return (
     <Layout style={styles.list}>
