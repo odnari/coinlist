@@ -3,7 +3,7 @@ import {endpoints} from '../endpoints';
 
 const defaultFetchMarketsOptions = {
   vs_currency: 'EUR',
-  per_page: 10,
+  per_page: 20,
 };
 
 export const fetchMarkets = (options = {}) => {
@@ -15,6 +15,7 @@ export const fetchMarkets = (options = {}) => {
   return fetchRequest(url);
 };
 
-export const fetchCoin = id => {
-  return fetchRequest(endpoints.coinById(id));
+export const fetchCoin = (id, options = {}) => {
+  const url = getUrlWithParams(endpoints.coinById(id), options);
+  return fetchRequest(url);
 };

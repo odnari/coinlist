@@ -3,7 +3,7 @@ import {View, Pressable} from 'react-native';
 import {Avatar, Text} from '@ui-kitten/components';
 import styles from './styles';
 
-export default function MarketsListItem({item, onPress}) {
+function MarketsListItem({item, onPress}) {
   return (
     <Pressable onPress={() => onPress(item)}>
       <View style={styles.card}>
@@ -33,3 +33,5 @@ export default function MarketsListItem({item, onPress}) {
     </Pressable>
   );
 }
+
+export default React.memo(MarketsListItem);

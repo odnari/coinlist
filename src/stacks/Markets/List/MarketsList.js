@@ -2,12 +2,13 @@ import React, {useCallback, useContext, useEffect} from 'react';
 import {Divider, Layout, List} from '@ui-kitten/components';
 import {MarketsContext} from '../../../context/markets';
 import {SettingsContext} from '../../../context/settings';
+import {loadingStates} from '../../../constants';
 import MarketsListItem from './components/MarketListItem';
 import MarketsListHeader from './components/MarketListHeader';
 import styles from './styles';
 
 export default function MarketsList({navigation}) {
-  const {items, fetch} = useContext(MarketsContext);
+  const {items, fetch, status} = useContext(MarketsContext);
   const {currency} = useContext(SettingsContext);
 
   const onPress = useCallback(
@@ -19,13 +20,20 @@ export default function MarketsList({navigation}) {
     [navigation],
   );
 
+  const loadMarkets = useCallback(
+    () => fetch({vs_currency: currency}),
+    [fetch, currency],
+  );
+
   useEffect(() => {
-    fetch({vs_currency: currency});
-  }, [currency, fetch]);
+    loadMarkets();
+  }, [loadMarkets]);
 
   return (
     <Layout style={styles.list}>
       <List
+        refreshing={status === loadingStates.LOADING}
+        onRefresh={loadMarkets}
         ItemSeparatorComponent={Divider}
         renderItem={props => <MarketsListItem onPress={onPress} {...props} />}
         data={items}
