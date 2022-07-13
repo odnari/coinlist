@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1.0,
     height: 96,
     alignSelf: 'center',
-    marginVertical: 8,
+    marginVertical: 16,
   },
 });
 

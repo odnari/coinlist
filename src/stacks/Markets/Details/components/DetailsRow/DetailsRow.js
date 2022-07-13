@@ -18,7 +18,7 @@ export default function DetailsRow({label, value, vertical, onPress}) {
         <Text appearance="hint" category="s1" style={labelStyle}>
           {label}
         </Text>
-        <Text category="s1">{value}</Text>
+        <Text category="s1">{value || '-'}</Text>
       </Layout>
       <Divider />
     </WrapperComponent>
