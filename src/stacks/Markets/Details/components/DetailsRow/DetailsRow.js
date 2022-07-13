@@ -3,13 +3,7 @@ import styles from './styles';
 import {Divider, Layout, Text} from '@ui-kitten/components';
 import {Pressable} from 'react-native';
 
-export default function DetailsRow({
-  label,
-  value,
-  vertical,
-  onPress,
-  valueStyle = {},
-}) {
+function DetailsRow({label, value, vertical, onPress, valueStyle = {}}) {
   const containerStyle = vertical
     ? styles.containerVertical
     : styles.containerHorizontal;
@@ -32,3 +26,5 @@ export default function DetailsRow({
     </WrapperComponent>
   );
 }
+
+export default React.memo(DetailsRow);
