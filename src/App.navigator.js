@@ -19,7 +19,7 @@ export default function AppNavigator() {
         <Stack.Screen
           name="MarketsDetails"
           component={Details}
-          options={{title: 'Details'}}
+          options={({route}) => ({title: route.params.name})}
         />
       </Stack.Navigator>
     </NavigationContainer>

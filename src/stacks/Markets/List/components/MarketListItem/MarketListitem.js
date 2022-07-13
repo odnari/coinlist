@@ -2,14 +2,10 @@ import React from 'react';
 import {View, Pressable} from 'react-native';
 import {Avatar, Text} from '@ui-kitten/components';
 import styles from './styles';
-import {useNavigation} from '@react-navigation/native';
 
-export default function MarketsListItem({item}) {
-  const navigation = useNavigation();
-  const onPress = () => navigation.navigate('MarketsDetails');
-
+export default function MarketsListItem({item, onPress}) {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={() => onPress(item)}>
       <View style={styles.card}>
         <View style={styles.coin}>
           <Avatar
