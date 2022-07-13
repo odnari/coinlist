@@ -1,9 +1,9 @@
-const defaultHeaders = {
+export const defaultHeaders = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
 };
 
-export const getUrlWithParams = (sourceUrl, params) => {
+export const getUrlWithParams = (sourceUrl, params = {}) => {
   const keys = Object.keys(params);
 
   if (!keys.length) {
@@ -35,5 +35,5 @@ export default function fetchRequest(
     request.body = JSON.stringify(body);
   }
 
-  return fetch(url).then(res => res.json());
+  return fetch(url, request).then(res => res.json());
 }
