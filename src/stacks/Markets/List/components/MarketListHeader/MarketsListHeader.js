@@ -1,9 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Layout, Text} from '@ui-kitten/components';
+import {useSettings} from '../../../../../context/settings';
 import styles from './styles';
 
 export default function MarketsListHeader() {
+  const {currency} = useSettings();
+
   return (
     <Layout level="3">
       <View style={styles.card}>
@@ -14,7 +17,7 @@ export default function MarketsListHeader() {
           <Text category={'label'}>NAME</Text>
         </View>
         <Text style={styles.price} category={'label'}>
-          PRICE
+          PRICE ({currency.toUpperCase()})
         </Text>
         <Text style={styles.price} category={'label'}>
           HIGH 24H
